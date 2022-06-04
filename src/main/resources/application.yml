@@ -1,0 +1,36 @@
+server:
+  port: 8082
+
+spring:
+  data:
+    mongodb:
+      database: usersDB
+      host: localhost
+      port: 27017
+      uri: mongodb://localhost:27017/usersDB
+
+spring-doc:
+  api-docs:
+    groups:
+      enabled: true
+  swagger-ui:
+    path: /docs
+    tags-sorter: method
+    operations-sorter: alpha
+  use-fqn: true
+
+management:
+  health:
+    circuitbreakers:
+      enabled: false
+  endpoints:
+    enabled-by-defaults: false
+    web:
+      exposure:
+        include: health,prometheus
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+    prometheus:
+      enabled: true
