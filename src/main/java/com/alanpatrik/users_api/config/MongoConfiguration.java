@@ -1,4 +1,4 @@
-package com.alanpatrik.users_api.configuration;
+package com.alanpatrik.users_api.config;
 
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;

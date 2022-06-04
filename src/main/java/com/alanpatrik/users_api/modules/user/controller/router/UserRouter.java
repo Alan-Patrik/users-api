@@ -1,8 +1,8 @@
-package com.alanpatrik.users_api.application.controller.router;
+package com.alanpatrik.users_api.modules.user.controller.router;
 
-import com.alanpatrik.users_api.application.controller.handler.UserHandler;
+import com.alanpatrik.users_api.modules.user.controller.handler.UserHandler;
 
-import com.alanpatrik.users_api.domain.document.User;
+import com.alanpatrik.users_api.modules.user.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -35,9 +35,9 @@ public class UserRouter {
                     path = "/api/v1/users/",
                     produces = {APPLICATION_JSON_VALUE},
                     method = GET,
-                    beanMethod = "findAll",
+                    beanMethod = "getAll",
                     operation = @Operation(
-                            operationId = "findAll",
+                            operationId = "getAll",
                             description = "API to list all registered users",
                             summary = "API to list all registered users",
                             responses = {
@@ -58,9 +58,9 @@ public class UserRouter {
                     path = "/api/v1/users/{id}",
                     produces = {APPLICATION_JSON_VALUE},
                     method = GET,
-                    beanMethod = "find",
+                    beanMethod = "getById",
                     operation = @Operation(
-                            operationId = "find",
+                            operationId = "getById",
                             description = "API to return a specific user",
                             summary = "API to return a specific user",
                             responses = {
@@ -89,9 +89,9 @@ public class UserRouter {
                     path = "/api/v1/users/",
                     produces = {APPLICATION_JSON_VALUE},
                     method = POST,
-                    beanMethod = "save",
+                    beanMethod = "create",
                     operation = @Operation(
-                            operationId = "save",
+                            operationId = "create",
                             description = "API to create a user in the database",
                             summary = "API to create a user in the database",
                             responses = {
@@ -204,9 +204,9 @@ public class UserRouter {
                         builder -> builder.nest(
                                 accept(APPLICATION_JSON),
                                 httpMethods -> httpMethods
-                                        .GET("", handler::findAll)
-                                        .GET("/{id}", handler::find)
-                                        .POST("", handler::save)
+                                        .GET("", handler::getAll)
+                                        .GET("/{id}", handler::getById)
+                                        .POST("", handler::create)
                                         .PUT("/{id}", handler::update)
                                         .DELETE("/{id}", handler::delete)
                         )

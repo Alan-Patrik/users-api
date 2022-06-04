@@ -1,4 +1,4 @@
-package com.alanpatrik.users_api.domain.document;
+package com.alanpatrik.users_api.enums;
 
 public enum Role {
     ROLE_ADMIN,
